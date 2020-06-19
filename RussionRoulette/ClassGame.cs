@@ -49,10 +49,10 @@ namespace RussionRoulette
         /// </summary>
         public void NewGame()
         {
-            // generate the secret Box ID where the bullet will be put
-            SecretChamberID = NumGenerator.Next(1, NoOfChamber + 1);
-            AwayCount = 2; // Default number of shot away is 2
-            CurrentChamberID = 1; //Start from chamber 1
+            // generate the secret chamber ID to be guessed
+            SecretChamberID = NumGenerator.Next(1, 7);
+            AwayCount = 2; // Total Available away shots 2 
+            CurrentChamberID = NumGenerator.Next(1, 7);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace RussionRoulette
         ///     Return true if matched, else return false.
         /// </summary>
         /// <returns>return True when the current chamber ID match the secret chamber ID</returns>
-        public bool isBullet()
+        public bool bulletShot()
         {
             return CurrentChamberID == SecretChamberID;
         }

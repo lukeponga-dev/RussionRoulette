@@ -42,7 +42,7 @@ namespace RussionRoulette
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
-            if (MyClassRoulette.isBullet())
+            if (MyClassRoulette.bulletShot())
             {
 
                 MessageBox.Show("You just blew your brains.!\nYou Lose!\nTry Again.");
