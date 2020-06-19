@@ -71,6 +71,7 @@
             this.btnShoot.TabIndex = 1;
             this.btnShoot.Text = "Shoot";
             this.btnShoot.UseVisualStyleBackColor = true;
+            this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
             // 
             // btnSpin
             // 

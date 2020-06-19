@@ -60,7 +60,7 @@ namespace RussionRoulette
         ///     Return true if matched, else return false.
         /// </summary>
         /// <returns>return True when the current chamber ID match the secret chamber ID</returns>
-        public bool isBomb()
+        public bool isBullet()
         {
             return CurrentChamberID == SecretChamberID;
         }

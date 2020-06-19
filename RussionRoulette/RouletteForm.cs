@@ -22,13 +22,26 @@ namespace RussionRoulette
         private void RefreshScreen()
         {
             lblBulletLocation.Text = MyClassRoulette.SecretChamberID.ToString();
+            lblCurrentID.Text = MyClassRoulette.CurrentChamberID.ToString();
+            lblGame.Text = MyClassRoulette.TotalGamePlayed.ToString();
+            lblWin.Text = MyClassRoulette.Win.ToString();
+            lblLose.Text = MyClassRoulette.Lose.ToString();
+            lblAwayCount.Text = "You have " + MyClassRoulette.AwayCount + " away shots left.";
         }
-     
-        
-        
+
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShoot_Click(object sender, EventArgs e)
+        {
+            if (MyClassRoulette.isBullet())
+            {
+                MessageBox.Show("You just blew your brains.!\nYou Lose!\nTry Again.");
+            }
         }
     }
 }
