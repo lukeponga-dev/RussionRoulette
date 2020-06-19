@@ -61,14 +61,15 @@ namespace RussionRoulette
         {
             if (MyClassRoulette.bulletShot())
             {
-                MessageBox.Show("You Just Shot The Bullet.\nYou Won!");
+                MessageBox.Show("You Just Shot The Bullet Away!\nYou Won!");
                 MyClassRoulette.YouWon();
                 MyClassRoulette.NewGame();
             }
             else
             {
+                MyClassRoulette.AwayCount--;
                 MyClassRoulette.Next();
-                if (MyClassRoulette.AwayCount==3)
+                if ( MyClassRoulette.AwayCount==0)
                 { 
                     MessageBox.Show("Used all away shots & You didn't find the bullet.\nYou Lost!");
                     MyClassRoulette.YouLose();
