@@ -29,7 +29,11 @@ namespace RussionRoulette
             lblAwayCount.Text = "You have " + MyClassRoulette.AwayCount + " away shots left.";
         }
 
-
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            MyClassRoulette.NewGame();
+            RefreshScreen();
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -40,8 +44,12 @@ namespace RussionRoulette
         {
             if (MyClassRoulette.isBullet())
             {
+
                 MessageBox.Show("You just blew your brains.!\nYou Lose!\nTry Again.");
+                MyClassRoulette.YouLose();
+                MyClassRoulette.NewGame();
             }
         }
+
     }
 }
