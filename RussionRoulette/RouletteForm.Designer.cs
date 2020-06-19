@@ -31,7 +31,7 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnShoot = new System.Windows.Forms.Button();
             this.btnSpin = new System.Windows.Forms.Button();
-            this.btnShotAway = new System.Windows.Forms.Button();
+            this.btnNoOfAway = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,16 +84,17 @@
             this.btnSpin.Text = "Spin";
             this.btnSpin.UseVisualStyleBackColor = true;
             // 
-            // btnShotAway
+            // btnNoOfAway
             // 
-            this.btnShotAway.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShotAway.ForeColor = System.Drawing.Color.Red;
-            this.btnShotAway.Location = new System.Drawing.Point(603, 331);
-            this.btnShotAway.Name = "btnShotAway";
-            this.btnShotAway.Size = new System.Drawing.Size(115, 46);
-            this.btnShotAway.TabIndex = 3;
-            this.btnShotAway.Text = "Shoot Away";
-            this.btnShotAway.UseVisualStyleBackColor = true;
+            this.btnNoOfAway.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoOfAway.ForeColor = System.Drawing.Color.Red;
+            this.btnNoOfAway.Location = new System.Drawing.Point(603, 331);
+            this.btnNoOfAway.Name = "btnNoOfAway";
+            this.btnNoOfAway.Size = new System.Drawing.Size(115, 46);
+            this.btnNoOfAway.TabIndex = 3;
+            this.btnNoOfAway.Text = "Shoot Away";
+            this.btnNoOfAway.UseVisualStyleBackColor = true;
+            this.btnNoOfAway.Click += new System.EventHandler(this.btnShotAway_Click);
             // 
             // btnNew
             // 
@@ -277,7 +278,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnNew);
-            this.Controls.Add(this.btnShotAway);
+            this.Controls.Add(this.btnNoOfAway);
             this.Controls.Add(this.btnSpin);
             this.Controls.Add(this.btnShoot);
             this.Controls.Add(this.btnLoad);
@@ -295,7 +296,7 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnShoot;
         private System.Windows.Forms.Button btnSpin;
-        private System.Windows.Forms.Button btnShotAway;
+        private System.Windows.Forms.Button btnNoOfAway;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Label label1;

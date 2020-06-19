@@ -43,23 +43,39 @@ namespace RussionRoulette
         private void btnShoot_Click(object sender, EventArgs e)
         {
             if (MyClassRoulette.bulletShot())
-            {
-
-                MessageBox.Show("You just blew your brains.!\nYou Lose!\nTry Again.");
-                MyClassRoulette.YouLose();
-                MyClassRoulette.NewGame();
-            }
+            { MessageBox.Show("You just blew your brains.!\nYou Lose!\nTry Again."); MyClassRoulette.YouLose(); MyClassRoulette.NewGame(); }
             else
-            {MyClassRoulette.Next();
-
+            {
+                MyClassRoulette.Next();
                 if (MyClassRoulette.CurrentChamberID == MyClassRoulette.NoOfChamber)
                 { 
-                    MessageBox.Show($"You have shot all {MyClassRoulette.NoOfChamber-1} chambers & Found Bullet In The {MyClassRoulette.SecretChamberID}.\nYou Won!!!");
+                    MessageBox.Show($"You Have Shot All {MyClassRoulette.NoOfChamber-1} Chambers & Found Bullet In The {MyClassRoulette.SecretChamberID}.\nYou Won!!!");
                     MyClassRoulette.YouWon();
                     MyClassRoulette.NewGame();
                 }
             }
+            RefreshScreen();
         }
 
+        private void btnShotAway_Click(object sender, EventArgs e)
+        {
+            if (MyClassRoulette.bulletShot())
+            {
+                MessageBox.Show("You Just Shot The Bullet.\nYou Won!");
+                MyClassRoulette.YouWon();
+                MyClassRoulette.NewGame();
+            }
+            else
+            {
+                MyClassRoulette.AwayCount--;
+                if (MyClassRoulette.AwayCount==0)
+                { 
+                    MessageBox.Show("Used all away shots & You didn't find the bullet.\nYou Lost!");
+                    MyClassRoulette.YouLose();
+                    MyClassRoulette.NewGame();
+                }
+            }
+            RefreshScreen();
+        }
     }
 }
