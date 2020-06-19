@@ -26,7 +26,7 @@ namespace RussionRoulette
             lblGame.Text = MyClassRoulette.TotalGamePlayed.ToString();
             lblWin.Text = MyClassRoulette.Win.ToString();
             lblLose.Text = MyClassRoulette.Lose.ToString();
-            lblAwayCount.Text = "You have " + MyClassRoulette.AwayCount + " away shots left.";
+            lblNoOfAway.Text = "You have " + MyClassRoulette.AwayCount + " away shots left.";
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace RussionRoulette
             RefreshScreen();
         }
 
-        private void btnShotAway_Click(object sender, EventArgs e)
+        private void btnNoOfAway_Click(object sender, EventArgs e)
         {
             if (MyClassRoulette.bulletShot())
             {
@@ -67,8 +67,8 @@ namespace RussionRoulette
             }
             else
             {
-                MyClassRoulette.AwayCount--;
-                if (MyClassRoulette.AwayCount==0)
+                MyClassRoulette.Next();
+                if (MyClassRoulette.AwayCount==3)
                 { 
                     MessageBox.Show("Used all away shots & You didn't find the bullet.\nYou Lost!");
                     MyClassRoulette.YouLose();

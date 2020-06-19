@@ -46,7 +46,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblCurrentID = new System.Windows.Forms.Label();
             this.lblBulletLocation = new System.Windows.Forms.Label();
-            this.lblAwayCount = new System.Windows.Forms.Label();
+            this.lblNoOfAway = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +94,7 @@
             this.btnNoOfAway.TabIndex = 3;
             this.btnNoOfAway.Text = "Shoot Away";
             this.btnNoOfAway.UseVisualStyleBackColor = true;
-            this.btnNoOfAway.Click += new System.EventHandler(this.btnShotAway_Click);
+            this.btnNoOfAway.Click += new System.EventHandler(this.btnNoOfAway_Click);
             // 
             // btnNew
             // 
@@ -246,25 +246,25 @@
             this.lblBulletLocation.TabIndex = 18;
             this.lblBulletLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblAwayCount
+            // lblNoOfAway
             // 
-            this.lblAwayCount.AutoSize = true;
-            this.lblAwayCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblAwayCount.Font = new System.Drawing.Font("Tempus Sans ITC", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAwayCount.ForeColor = System.Drawing.Color.Red;
-            this.lblAwayCount.Location = new System.Drawing.Point(249, 337);
-            this.lblAwayCount.Name = "lblAwayCount";
-            this.lblAwayCount.Size = new System.Drawing.Size(348, 30);
-            this.lblAwayCount.TabIndex = 19;
-            this.lblAwayCount.Text = "You have ? shoot away available";
-            this.lblAwayCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNoOfAway.AutoSize = true;
+            this.lblNoOfAway.BackColor = System.Drawing.Color.Transparent;
+            this.lblNoOfAway.Font = new System.Drawing.Font("Tempus Sans ITC", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoOfAway.ForeColor = System.Drawing.Color.Red;
+            this.lblNoOfAway.Location = new System.Drawing.Point(249, 337);
+            this.lblNoOfAway.Name = "lblNoOfAway";
+            this.lblNoOfAway.Size = new System.Drawing.Size(348, 30);
+            this.lblNoOfAway.TabIndex = 19;
+            this.lblNoOfAway.Text = "You have ? shoot away available";
+            this.lblNoOfAway.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RouletteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 427);
-            this.Controls.Add(this.lblAwayCount);
+            this.Controls.Add(this.lblNoOfAway);
             this.Controls.Add(this.lblBulletLocation);
             this.Controls.Add(this.lblCurrentID);
             this.Controls.Add(this.label8);
@@ -311,7 +311,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblCurrentID;
         private System.Windows.Forms.Label lblBulletLocation;
-        private System.Windows.Forms.Label lblAwayCount;
+        private System.Windows.Forms.Label lblNoOfAway;
     }
 }
 
