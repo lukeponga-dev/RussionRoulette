@@ -60,6 +60,7 @@
             this.btnLoad.TabIndex = 0;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnShoot
             // 
@@ -83,6 +84,7 @@
             this.btnSpin.TabIndex = 2;
             this.btnSpin.Text = "Spin";
             this.btnSpin.UseVisualStyleBackColor = true;
+            this.btnSpin.Click += new System.EventHandler(this.btnSpin_Click);
             // 
             // btnNoOfAway
             // 
@@ -118,6 +120,7 @@
             this.btnQuit.TabIndex = 5;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // label1
             // 
@@ -128,7 +131,6 @@
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Game:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -186,6 +188,7 @@
             // imgBox
             // 
             this.imgBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.imgBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.imgBox.Location = new System.Drawing.Point(159, 66);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(411, 253);
@@ -263,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 427);
+            this.ClientSize = new System.Drawing.Size(810, 410);
             this.Controls.Add(this.lblNoOfAway);
             this.Controls.Add(this.lblBulletLocation);
             this.Controls.Add(this.lblCurrentID);
