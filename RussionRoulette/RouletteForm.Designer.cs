@@ -44,8 +44,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblCurrentChamber = new System.Windows.Forms.Label();
-            this.lblsecretChamber = new System.Windows.Forms.Label();
+            this.lblCurrentID = new System.Windows.Forms.Label();
+            this.lblBulletLocation = new System.Windows.Forms.Label();
             this.lblAwayCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
@@ -205,43 +205,43 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tempus Sans ITC", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(576, 173);
+            this.label8.Location = new System.Drawing.Point(628, 175);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(162, 23);
+            this.label8.Size = new System.Drawing.Size(113, 23);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Current Chamber:";
+            this.label8.Text = "Bullet is At:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tempus Sans ITC", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(576, 221);
+            this.label9.Location = new System.Drawing.Point(566, 221);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(147, 23);
+            this.label9.Size = new System.Drawing.Size(175, 23);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Secret Chamber:";
+            this.label9.Text = "CurrentChamberID:";
             // 
-            // lblCurrentChamber
+            // lblCurrentID
             // 
-            this.lblCurrentChamber.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCurrentChamber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCurrentChamber.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentChamber.Location = new System.Drawing.Point(744, 173);
-            this.lblCurrentChamber.Name = "lblCurrentChamber";
-            this.lblCurrentChamber.Size = new System.Drawing.Size(40, 20);
-            this.lblCurrentChamber.TabIndex = 17;
-            this.lblCurrentChamber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCurrentID.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCurrentID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCurrentID.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentID.Location = new System.Drawing.Point(747, 221);
+            this.lblCurrentID.Name = "lblCurrentID";
+            this.lblCurrentID.Size = new System.Drawing.Size(41, 20);
+            this.lblCurrentID.TabIndex = 17;
+            this.lblCurrentID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblsecretChamber
+            // lblBulletLocation
             // 
-            this.lblsecretChamber.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblsecretChamber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblsecretChamber.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsecretChamber.Location = new System.Drawing.Point(744, 222);
-            this.lblsecretChamber.Name = "lblsecretChamber";
-            this.lblsecretChamber.Size = new System.Drawing.Size(40, 20);
-            this.lblsecretChamber.TabIndex = 18;
-            this.lblsecretChamber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBulletLocation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblBulletLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBulletLocation.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBulletLocation.Location = new System.Drawing.Point(747, 176);
+            this.lblBulletLocation.Name = "lblBulletLocation";
+            this.lblBulletLocation.Size = new System.Drawing.Size(41, 20);
+            this.lblBulletLocation.TabIndex = 18;
+            this.lblBulletLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAwayCount
             // 
@@ -262,9 +262,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 427);
             this.Controls.Add(this.lblAwayCount);
-            this.Controls.Add(this.lblsecretChamber);
-            this.Controls.Add(this.lblCurrentChamber);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblBulletLocation);
+            this.Controls.Add(this.lblCurrentID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.imgBox);
@@ -280,6 +279,7 @@
             this.Controls.Add(this.btnSpin);
             this.Controls.Add(this.btnShoot);
             this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.label9);
             this.Name = "RouletteForm";
             this.Text = "RouletteForm";
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
@@ -306,8 +306,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblCurrentChamber;
-        private System.Windows.Forms.Label lblsecretChamber;
+        private System.Windows.Forms.Label lblCurrentID;
+        private System.Windows.Forms.Label lblBulletLocation;
         private System.Windows.Forms.Label lblAwayCount;
     }
 }

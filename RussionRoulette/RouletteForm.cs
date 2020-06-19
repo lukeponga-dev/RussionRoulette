@@ -12,12 +12,20 @@ namespace RussionRoulette
 {
     public partial class RouletteForm : Form
     {
-        ClassGame RussianRouletteGame = new ClassGame();
+        ClassGame MyClassRoulette = new ClassGame();
         public RouletteForm()
         {
             InitializeComponent();
+            RefreshScreen();
         }
 
+        private void RefreshScreen()
+        {
+            lblBulletLocation.Text = MyClassRoulette.SecretChamberID.ToString();
+        }
+     
+        
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
