@@ -49,6 +49,16 @@ namespace RussionRoulette
                 MyClassRoulette.YouLose();
                 MyClassRoulette.NewGame();
             }
+            else
+            {MyClassRoulette.Next();
+
+                if (MyClassRoulette.CurrentChamberID == MyClassRoulette.NoOfChamber)
+                { 
+                    MessageBox.Show($"You have shot all {MyClassRoulette.NoOfChamber-1} chambers & Found Bullet In The {MyClassRoulette.SecretChamberID}.\nYou Won!!!");
+                    MyClassRoulette.YouWon();
+                    MyClassRoulette.NewGame();
+                }
+            }
         }
 
     }

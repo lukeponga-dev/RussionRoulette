@@ -50,9 +50,9 @@ namespace RussionRoulette
         public void NewGame()
         {
             // generate the secret chamber ID to be guessed
-            SecretChamberID = NumGenerator.Next(1, 7);
+            SecretChamberID = NumGenerator.Next(1, NoOfChamber+1);
             AwayCount = 2; // Total Available away shots 2 
-            CurrentChamberID = NumGenerator.Next(1, 7);
+            CurrentChamberID = 1;
         }
 
         /// <summary>
