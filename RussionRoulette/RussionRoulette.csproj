@@ -47,14 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassGame.cs" />
-    <Compile Include="ClassSpinner.cs" />
-    <Compile Include="GameClass2.cs" />
-    <Compile Include="RouletteFormv2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RouletteFormv2.Designer.cs">
-      <DependentUpon>RouletteFormv2.cs</DependentUpon>
-    </Compile>
     <Compile Include="RouletteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,9 +60,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RouletteFormv2.resx">
-      <DependentUpon>RouletteFormv2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RouletteForm.resx">
       <DependentUpon>RouletteForm.cs</DependentUpon>
     </EmbeddedResource>

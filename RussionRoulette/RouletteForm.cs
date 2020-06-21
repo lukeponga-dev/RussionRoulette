@@ -17,7 +17,7 @@ namespace RussionRoulette
         private readonly SoundPlayer _shoot;
         private readonly SoundPlayer _spin;
 
-        private readonly ClassGame MyClassRoulette = new ClassGame();
+        ClassGame MyClassRoulette = new ClassGame();
         Random rand = new Random();
         public RouletteForm()
         {
@@ -45,7 +45,7 @@ namespace RussionRoulette
             btnSpin.Enabled = false;// Enabling spin function
             btnShoot.Enabled = false;
             btnNoOfAway.Enabled = false;
-
+            btnNew.Enabled = false;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -56,6 +56,7 @@ namespace RussionRoulette
             btnSpin.Enabled = false;// Enabling spin function
             btnShoot.Enabled = false;
             btnNoOfAway.Enabled = false;
+            btnNew.Enabled = false;
 
         }
 
@@ -74,16 +75,19 @@ namespace RussionRoulette
         }
         private void btnSpin_Click(object sender, EventArgs e)
         {
+
+            MyClassRoulette.NewGame();
             _spin.Play();
-            Assembly mygame = Assembly.GetExecutingAssembly();
-            Stream myst = mygame.GetManifestResourceStream("RussianRoulette.Resource1.spin1");// Adding image in load functionimg = Image.FromFile("RussionRoulette.Resource1.spin1");
-            imgBox.Image = RussionRoulette.Resource1.spin1;
-       //     MessageBox.Show("Chamber" + MyClassRoulette.CurrentChamberID);
             imgBox.Visible = true;
             btnLoad.Enabled = false; // Disable the spin button
             btnSpin.Enabled = false; // Disable the spin button
             btnShoot.Enabled = true; // Enabling shoot button
             btnNoOfAway.Enabled = true;
+            Assembly mygame = Assembly.GetExecutingAssembly();
+            Stream myst = mygame.GetManifestResourceStream("RussianRoulette.Resource1.spin1");
+            imgBox.Image = RussionRoulette.Resource1.spin1;
+       //     MessageBox.Show("Chamber" + MyClassRoulette.CurrentChamberID);
+
             RefreshScreen();
         }
 
@@ -104,9 +108,9 @@ namespace RussionRoulette
                 btnSpin.Enabled = false;
                 btnShoot.Enabled = false;
                 btnNoOfAway.Enabled = false;
+                btnNew.Enabled = true;
 
             }
-
             else 
             {
                 {
@@ -121,7 +125,7 @@ namespace RussionRoulette
 
                 if (MyClassRoulette.CurrentChamberID == MyClassRoulette.NoOfChamber)
                 {
-                    _shoot.Play();// This sound will play on the click of shoot button
+                    _dryGunShot.Play();// This sound will play on the click of shoot button
                     Assembly mygame = Assembly.GetExecutingAssembly();
                     Stream myst = mygame.GetManifestResourceStream("RussionRoulette.Resources1.NotShoot");// This image will show on the click of shoot button
                     imgBox.Image = RussionRoulette.Resource1.NotShoot;
@@ -129,14 +133,13 @@ namespace RussionRoulette
                     MyClassRoulette.NewGame();
                     MessageBox.Show(
                         $"You Have Shot All {MyClassRoulette.NoOfChamber - 1} Chambers & Found Bullet In The {MyClassRoulette.SecretChamberID}.\nYou Won!!!");
+                    MyClassRoulette.YouWon();
+                    MyClassRoulette.NewGame();
                     btnLoad.Enabled = false;
                     btnSpin.Enabled = false;
                     btnShoot.Enabled = false;
                     btnNoOfAway.Enabled = false;
-
-                    MyClassRoulette.YouWon();
-                    MyClassRoulette.NewGame();
-
+                    btnNew.Enabled = true;
                 }
             }
 
@@ -152,15 +155,17 @@ namespace RussionRoulette
             Stream myst = mygame.GetManifestResourceStream("RussionRoulette.Resources1.ShootAway");// This image will show on the click of shoot button
             imgBox.Image = RussionRoulette.Resource1.ShotAway;
             MessageBox.Show("You Just Shot The Bullet Away!\nYou Won!");
-            btnLoad.Enabled = false;
-            btnSpin.Enabled = false;
-            btnShoot.Enabled = false;
-            btnNoOfAway.Enabled = false;
-                MyClassRoulette.YouWon();
+            MyClassRoulette.YouWon();
                 MyClassRoulette.NewGame();
+                btnLoad.Enabled = false;
+                btnSpin.Enabled = false;
+                btnShoot.Enabled = false;
+                btnNoOfAway.Enabled = false;
+                btnNew.Enabled = true;
             }
             else
             {
+                _dryGunShot.Play();
                 MyClassRoulette.AwayCount--;
                 MyClassRoulette.Next();
                 if (MyClassRoulette.AwayCount == 0)
@@ -176,6 +181,7 @@ namespace RussionRoulette
                     btnNoOfAway.Enabled = false;
                     MyClassRoulette.YouLose();
                     MyClassRoulette.NewGame();
+                    btnNew.Enabled = true;
                 }
             }
 
@@ -196,7 +202,7 @@ namespace RussionRoulette
 
         private void lblBulletLocation_Click(object sender, EventArgs e)
         {
-            Hide();
+         
         }
     }
 }

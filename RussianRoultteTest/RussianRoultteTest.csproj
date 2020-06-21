@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E828AE5-E639-4CA5-9A46-9EFE5C4AD62D}</ProjectGuid>
+    <ProjectGuid>{25CD5DD4-D37D-4B0A-A613-69FF7A395726}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RussianRouletteUnitTest1</RootNamespace>
-    <AssemblyName>RussianRouletteUnitTest1</AssemblyName>
+    <RootNamespace>RussianRoultteTest</RootNamespace>
+    <AssemblyName>RussianRoultteTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -44,6 +44,12 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RussionRoulette\RussionRoulette.csproj">
+      <Project>{ccd866bf-2a59-44b5-a08f-3e295f531bbb}</Project>
+      <Name>RussionRoulette</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

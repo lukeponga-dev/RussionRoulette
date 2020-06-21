@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace RussianRouletteUnitTest1
+namespace RussianRoultteTest
 {
     [TestClass]
     public class UnitTest1
     {
+
         [TestMethod]
         public void TestMethod1()
         {
