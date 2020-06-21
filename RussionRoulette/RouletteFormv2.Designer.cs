@@ -1,6 +1,6 @@
 ﻿namespace RussionRoulette
 {
-    partial class RouletteForm
+    partial class RouletteFormv2
     {
         /// <summary>
         /// Required designer variable.
@@ -216,7 +216,6 @@
             this.label8.Size = new System.Drawing.Size(113, 22);
             this.label8.TabIndex = 15;
             this.label8.Text = "Bullet is At:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -249,7 +248,6 @@
             this.lblBulletLocation.Size = new System.Drawing.Size(41, 20);
             this.lblBulletLocation.TabIndex = 18;
             this.lblBulletLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblBulletLocation.Click += new System.EventHandler(this.lblBulletLocation_Click);
             // 
             // lblNoOfAway
             // 

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -7,10 +10,21 @@ namespace RussionRoulette
 {
     public partial class RouletteForm : Form
     {
-        private readonly ClassGame MyClassRoulette = new ClassGame();
 
+        //Sounds
+        private readonly SoundPlayer _dryGunShot;
+        private readonly SoundPlayer _load;
+        private readonly SoundPlayer _shoot;
+        private readonly SoundPlayer _spin;
+
+        private readonly ClassGame MyClassRoulette = new ClassGame();
+        Random rand = new Random();
         public RouletteForm()
         {
+            _dryGunShot = new SoundPlayer(Resource1.drygunshot);
+            _load = new SoundPlayer(Resource1.load);
+            _shoot = new SoundPlayer(Resource1.gunshot);
+            _spin = new SoundPlayer(Resource1.spin);
             InitializeComponent();
             RefreshScreen();
         }
@@ -25,22 +39,63 @@ namespace RussionRoulette
             lblNoOfAway.Text = "You have " + MyClassRoulette.AwayCount + " away shots left.";
         }
 
+        private void RouletteForm_Load(object sender, EventArgs e)
+        {
+            btnLoad.Enabled = true;
+            btnSpin.Enabled = false;// Enabling spin function
+            btnShoot.Enabled = false;
+            btnNoOfAway.Enabled = false;
+
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
             MyClassRoulette.NewGame();
             RefreshScreen();
-            btnLoad_Click(sender, e);
+            btnLoad.Enabled = true;
+            btnSpin.Enabled = false;// Enabling spin function
+            btnShoot.Enabled = false;
+            btnNoOfAway.Enabled = false;
+
         }
 
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            RefreshScreen();
+            _load.Play();// for playing the sound for load buttonm
+            btnLoad.Enabled = false;
+            btnSpin.Enabled = true;// Enabling spin function
+            btnShoot.Enabled = false;
+            btnNoOfAway.Enabled = false;
+            Assembly mygame = Assembly.GetExecutingAssembly();
+            Stream myst = mygame.GetManifestResourceStream("RussianRoulette.Resource1.load1");// Adding image in load function
+            imgBox.Image = RussionRoulette.Resource1.load1;
+            RefreshScreen();
+        }
+        private void btnSpin_Click(object sender, EventArgs e)
+        {
+            _spin.Play();
+            Assembly mygame = Assembly.GetExecutingAssembly();
+            Stream myst = mygame.GetManifestResourceStream("RussianRoulette.Resource1.spin1");// Adding image in load functionimg = Image.FromFile("RussionRoulette.Resource1.spin1");
+            imgBox.Image = RussionRoulette.Resource1.spin1;
+       //     MessageBox.Show("Chamber" + MyClassRoulette.CurrentChamberID);
+            imgBox.Visible = true;
+            btnLoad.Enabled = false; // Disable the spin button
+            btnSpin.Enabled = false; // Disable the spin button
+            btnShoot.Enabled = true; // Enabling shoot button
+            btnNoOfAway.Enabled = true;
+            RefreshScreen();
+        }
 
         private void btnShoot_Click(object sender, EventArgs e)
         {
             if (MyClassRoulette.bulletShot())
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(RussionRoulette.Resource1.gunshot);
-                player.Play();// This sound will play on the click of shoot button
+                _shoot.Play(); // This sound will play on the click of shoot button
                 Assembly mygame = Assembly.GetExecutingAssembly();
-                Stream myst = mygame.GetManifestResourceStream("RussionRoulette.Resources1.shoot1jpg");// This image will show on the click of shoot button
+                Stream myst =
+                    mygame.GetManifestResourceStream(
+                        "RussionRoulette.Resources1.shoot1"); // This image will show on the click of shoot button
                 imgBox.Image = RussionRoulette.Resource1.shoot1;
                 MessageBox.Show("You just blew your brains.!\nYou Lose!\nTry Again.");
                 MyClassRoulette.YouLose();
@@ -49,16 +104,39 @@ namespace RussionRoulette
                 btnSpin.Enabled = false;
                 btnShoot.Enabled = false;
                 btnNoOfAway.Enabled = false;
+
             }
-            else
+
+            else 
             {
-                MyClassRoulette.Next();
+                {
+                    MyClassRoulette.Next();
+                    _dryGunShot.Play();
+                    Assembly mygame = Assembly.GetExecutingAssembly();
+                    Stream myst =
+                        mygame.GetManifestResourceStream(
+                            "RussionRoulette.Resources1.NotShoot"); // This image will show on the click of shoot button
+                    imgBox.Image = RussionRoulette.Resource1.NotShoot;
+                }
+
                 if (MyClassRoulette.CurrentChamberID == MyClassRoulette.NoOfChamber)
                 {
+                    _shoot.Play();// This sound will play on the click of shoot button
+                    Assembly mygame = Assembly.GetExecutingAssembly();
+                    Stream myst = mygame.GetManifestResourceStream("RussionRoulette.Resources1.NotShoot");// This image will show on the click of shoot button
+                    imgBox.Image = RussionRoulette.Resource1.NotShoot;
+                    MyClassRoulette.YouLose();
+                    MyClassRoulette.NewGame();
                     MessageBox.Show(
                         $"You Have Shot All {MyClassRoulette.NoOfChamber - 1} Chambers & Found Bullet In The {MyClassRoulette.SecretChamberID}.\nYou Won!!!");
+                    btnLoad.Enabled = false;
+                    btnSpin.Enabled = false;
+                    btnShoot.Enabled = false;
+                    btnNoOfAway.Enabled = false;
+
                     MyClassRoulette.YouWon();
                     MyClassRoulette.NewGame();
+
                 }
             }
 
@@ -69,7 +147,15 @@ namespace RussionRoulette
         {
             if (MyClassRoulette.bulletShot())
             {
-                MessageBox.Show("You Just Shot The Bullet Away!\nYou Won!");
+                _shoot.Play();// This sound will play on the click of shoot button
+            Assembly mygame = Assembly.GetExecutingAssembly();
+            Stream myst = mygame.GetManifestResourceStream("RussionRoulette.Resources1.ShootAway");// This image will show on the click of shoot button
+            imgBox.Image = RussionRoulette.Resource1.ShotAway;
+            MessageBox.Show("You Just Shot The Bullet Away!\nYou Won!");
+            btnLoad.Enabled = false;
+            btnSpin.Enabled = false;
+            btnShoot.Enabled = false;
+            btnNoOfAway.Enabled = false;
                 MyClassRoulette.YouWon();
                 MyClassRoulette.NewGame();
             }
@@ -79,7 +165,15 @@ namespace RussionRoulette
                 MyClassRoulette.Next();
                 if (MyClassRoulette.AwayCount == 0)
                 {
+                    _dryGunShot.Play();// This sound will play on the click of shoot button
+                    Assembly mygame = Assembly.GetExecutingAssembly();
+                    Stream myst = mygame.GetManifestResourceStream("RussionRoulette.Resources1.DryAwayShot");// This image will show on the click of shoot button
+                    imgBox.Image = RussionRoulette.Resource1.DryAwayShot;
                     MessageBox.Show("Used all away shots & You didn't find the bullet.\nYou Lost!");
+                    btnLoad.Enabled = false;
+                    btnSpin.Enabled = false;
+                    btnShoot.Enabled = false;
+                    btnNoOfAway.Enabled = false;
                     MyClassRoulette.YouLose();
                     MyClassRoulette.NewGame();
                 }
@@ -88,10 +182,6 @@ namespace RussionRoulette
             RefreshScreen();
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            MyClassRoulette.NewGame();
-        }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
@@ -100,10 +190,13 @@ namespace RussionRoulette
             Application.Exit();
         }
 
-        private void btnSpin_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
-            imgBox.Visible = true;
-            
+        }
+
+        private void lblBulletLocation_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }
