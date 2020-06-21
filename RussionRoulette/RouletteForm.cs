@@ -18,7 +18,7 @@ namespace RussionRoulette
         private readonly SoundPlayer _spin;
 
         ClassGame MyClassRoulette = new ClassGame();
-        Random rand = new Random();
+   //     Random rand = new Random();
         public RouletteForm()
         {
             _dryGunShot = new SoundPlayer(Resource1.drygunshot);

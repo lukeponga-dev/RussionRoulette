@@ -2,7 +2,7 @@
 
 namespace RussionRoulette
 {
-    internal class ClassGame
+    public class ClassGame
     {
         public ClassGame()
         {
